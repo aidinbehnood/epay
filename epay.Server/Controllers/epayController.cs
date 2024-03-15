@@ -17,6 +17,7 @@ namespace epay.Server.Controllers
         public async Task<ActionResult<object>> InsertCustomer(List<Customer> customers)
         {
 
+
             try
             {
                 var errors = new List<Error>();
