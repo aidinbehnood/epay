@@ -7,9 +7,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ATM", "ATM", "{FC5190B2-1B0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RESTServer", "RESTServer", "{FF16A723-7C55-4195-8ED6-4EF6AC34D1CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "epay.ATM", "epay.ATM\epay.ATM.csproj", "{61C143F9-BDAF-4604-90A7-C622A973FE58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epay.ATM", "epay.ATM\epay.ATM.csproj", "{61C143F9-BDAF-4604-90A7-C622A973FE58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "epay.Server", "epay.Server\epay.Server.csproj", "{02DA89C6-9EF6-40BC-B587-04E33F9A032E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epay.Server", "epay.Server\epay.Server.csproj", "{02DA89C6-9EF6-40BC-B587-04E33F9A032E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{4DAD8065-C1E8-4B6C-8D54-AF21E087F691}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\2022_CodingTestNET.docx = ..\..\..\Downloads\2022_CodingTestNET.docx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
