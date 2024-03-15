@@ -11,11 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epay.ATM", "epay.ATM\epay.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epay.Server", "epay.Server\epay.Server.csproj", "{02DA89C6-9EF6-40BC-B587-04E33F9A032E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{4DAD8065-C1E8-4B6C-8D54-AF21E087F691}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Downloads\2022_CodingTestNET.docx = ..\..\..\Downloads\2022_CodingTestNET.docx
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
