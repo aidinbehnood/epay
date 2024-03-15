@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ATM", "ATM", "{FC5190B2-1B0E-4A26-A49E-C08DD28D05A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RESTServer", "RESTServer", "{FF16A723-7C55-4195-8ED6-4EF6AC34D1CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "epay.ATM", "epay.ATM\epay.ATM.csproj", "{61C143F9-BDAF-4604-90A7-C622A973FE58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "epay.Server", "epay.Server\epay.Server.csproj", "{02DA89C6-9EF6-40BC-B587-04E33F9A032E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61C143F9-BDAF-4604-90A7-C622A973FE58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C143F9-BDAF-4604-90A7-C622A973FE58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C143F9-BDAF-4604-90A7-C622A973FE58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C143F9-BDAF-4604-90A7-C622A973FE58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02DA89C6-9EF6-40BC-B587-04E33F9A032E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DA89C6-9EF6-40BC-B587-04E33F9A032E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DA89C6-9EF6-40BC-B587-04E33F9A032E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DA89C6-9EF6-40BC-B587-04E33F9A032E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{61C143F9-BDAF-4604-90A7-C622A973FE58} = {FC5190B2-1B0E-4A26-A49E-C08DD28D05A9}
+		{02DA89C6-9EF6-40BC-B587-04E33F9A032E} = {FF16A723-7C55-4195-8ED6-4EF6AC34D1CF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38725F46-5C8A-468B-AADB-64FCB7C8F14C}
+	EndGlobalSection
+EndGlobal
