@@ -39,8 +39,8 @@ namespace epay.Server.data
 
         public static async Task<bool> CheckDuplicateID(int id)
         {
-            var customerids= ReadData().Result.Select(x=>x.id).ToList();
-            return customerids.Any(x => x == id);
+            var customerIds= ReadData().Result.Select(x=>x.id).ToList();
+            return customerIds.Any(x => x == id);
 
         }
     }

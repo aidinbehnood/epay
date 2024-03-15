@@ -23,31 +23,72 @@ namespace epay.Server.Controllers
                 foreach (var customer in customers)
                     customer.Validate(ref errors);
 
-                if (errors.Count > 0) { return Ok(errors); }
+                if (errors.Count > 0)
+                    return Ok(errors);
+
                 DataContext.WriteData(customers);
-                return Ok();
+                return Ok(new ApiResult
+                {
+                    IsSuccess = true,
+                    MetaData = new MetaData
+                    {
+                        Message = "ok",
+                        AppStatusCode = AppStatusCode.Success
+                    }
+
+                });
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return BadRequest();
-                
+                return BadRequest(new ApiResult
+                {
+                    IsSuccess = false,
+                    MetaData = new MetaData
+                    {
+                        Message = ex.Message,
+                        AppStatusCode = AppStatusCode.LogicError
+                    }
+                });
+
             }
 
         }
 
         [HttpGet("GetCustomer")]
-        public async Task<ActionResult<object>> GetCustomer(List<Customer> customers)
+        public async Task<ActionResult<object>> GetCustomer()
         {
 
-            var errors = new List<Error>();
-            foreach (var customer in customers)
-                customer.Validate(ref errors);
+            try
+            {
+                var AllCustomers = await DataContext.ReadData();
 
-            if (errors.Count > 0) { return Ok(errors); }
-            DataContext.WriteData(customers);
+                return Ok(new ApiResult<List<Customer>>
+                {
 
-            return Ok();
+                    Data = AllCustomers,
+                    IsSuccess = true,
+                    MetaData = new MetaData
+                    {
+                        AppStatusCode = AppStatusCode.Success,
+                        Message = "ok"
+                    }
+
+                });
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new ApiResult
+                {
+                    IsSuccess = false,
+                    MetaData = new MetaData
+                    {
+                        Message = ex.Message,
+                        AppStatusCode = AppStatusCode.LogicError
+                    }
+                });
+            }
 
         }
     }
