@@ -30,9 +30,8 @@ namespace epay.Server.data
                 oldCustmerlst = JsonConvert.DeserializeObject<List<Customer>>(json);
             }
 
-            oldCustmerlst.AddRange(customers);
-            var lastnameSort = BubblesortBy(x => x.lastName, oldCustmerlst);
-            var finalSortlst=BubblesortBy(x => x.firstName, lastnameSort);
+            oldCustmerlst.AddRange(customers);          
+            var finalSortlst = BubblesortBy(x =>x.lastName, y=>y.firstName , oldCustmerlst);
             string json2 = JsonConvert.SerializeObject(finalSortlst);
             File.WriteAllText(@"data/Customers.json", json2);
 
@@ -46,7 +45,7 @@ namespace epay.Server.data
         }
 
 
-        public static List<TSource> BubblesortBy<TSource, TKey>(Func<TSource, TKey> keySelector,
+        public static List<TSource> BubblesortBy<TSource, TKey>(Func<TSource,TKey> keySelector , Func<TSource, TKey> keySelector2,
                                         List<TSource> customers)
         {
             int loopCount = 0;
@@ -55,15 +54,24 @@ namespace epay.Server.data
             for (int i = 0; i < customers.Count; i++)
             {
                 doBreak = true;
-                for (int j = 0; j < customers.Count - 1; j++)
+                for (int j = 0; j < customers.Count - 1; j++)      
                 {
                     if (Compare(keySelector(customers[j]), keySelector(customers[j + 1])))
                     {
                         TSource temp = customers[j + 1];
                         customers[j + 1] = customers[j];
                         customers[j] = temp;
+                        if (!Compare(keySelector2(customers[j]), keySelector2(customers[j + 1])))
+                        {
+                            temp = customers[j + 1];
+                            customers[j + 1] = customers[j];
+                            customers[j] = temp;
+                           
+                        }
                         doBreak = false;
                     }
+                    
+
                     loopCount++;
                 }
                 if (doBreak) { break;  }
