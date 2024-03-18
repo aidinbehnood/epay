@@ -31,10 +31,9 @@ namespace epay.Server.data
             }
 
             oldCustmerlst.AddRange(customers);
-            BubblesortBy(x => x.lastName, oldCustmerlst);
-            BubblesortBy(x => x.firstName, oldCustmerlst);
-            //var newCustomerlst = oldCustmerlst.OrderBy(x => x.lastName).ThenBy(x => x.firstName).ToList();
-            string json2 = JsonConvert.SerializeObject(oldCustmerlst);
+            var lastnameSort = BubblesortBy(x => x.lastName, oldCustmerlst);
+            var finalSortlst=BubblesortBy(x => x.firstName, lastnameSort);
+            string json2 = JsonConvert.SerializeObject(finalSortlst);
             File.WriteAllText(@"data/Customers.json", json2);
 
         }
@@ -47,28 +46,30 @@ namespace epay.Server.data
         }
 
 
-        public static void BubblesortBy<TSource, TKey>(Func<TSource, TKey> keySelector,
-                                        List<TSource> stocks)
+        public static List<TSource> BubblesortBy<TSource, TKey>(Func<TSource, TKey> keySelector,
+                                        List<TSource> customers)
         {
             int loopCount = 0;
             bool doBreak = true;
 
-            for (int i = 0; i < stocks.Count; i++)
+            for (int i = 0; i < customers.Count; i++)
             {
                 doBreak = true;
-                for (int j = 0; j < stocks.Count - 1; j++)
+                for (int j = 0; j < customers.Count - 1; j++)
                 {
-                    if (Compare(keySelector(stocks[j]), keySelector(stocks[j + 1])))
+                    if (Compare(keySelector(customers[j]), keySelector(customers[j + 1])))
                     {
-                        TSource temp = stocks[j + 1];
-                        stocks[j + 1] = stocks[j];
-                        stocks[j] = temp;
+                        TSource temp = customers[j + 1];
+                        customers[j + 1] = customers[j];
+                        customers[j] = temp;
                         doBreak = false;
                     }
                     loopCount++;
                 }
                 if (doBreak) { break;  }
             }
+
+            return customers;
         }
         private static bool Compare<T>(T l, T r)
         {
