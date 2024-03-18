@@ -61,7 +61,7 @@ namespace epay.Server.data
                         TSource temp = customers[j + 1];
                         customers[j + 1] = customers[j];
                         customers[j] = temp;
-                        if (Compare(keySelector2(customers[j]), keySelector2(customers[j + 1])))
+                        if (Compare(keySelector2(customers[j + 1]),keySelector2(customers[j])))
                         {
                             temp = customers[j + 1];
                             customers[j + 1] = customers[j];
